@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+        <variable
+            name="githubIssue"
+            type="com.example.githubissuesapplication.models.githubissues.GithubIssues" />
+    </data>
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:cardBackgroundColor="@color/white"
+        app:cardCornerRadius="8dp"
+        app:cardElevation="5dp"
+        app:cardPreventCornerOverlap="true"
+        app:cardUseCompatPadding="true">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:padding="5dp">
+
+            <TextView
+                android:textColor="@android:color/holo_red_dark"
+                android:id="@+id/tvIssueTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{githubIssue.title}"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <TextView
+                android:maxLines="5"
+                android:maxLength="200"
+                android:ellipsize="end"
+                android:textColor="@android:color/black"
+                android:id="@+id/tvIssueDesc"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{githubIssue.body}"
+                app:layout_constraintTop_toBottomOf="@+id/tvIssueTitle" />
+
+            <TextView
+                android:textColor="@android:color/holo_blue_dark"
+                android:id="@+id/tvIssueUser"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{githubIssue.user.login}"
+                app:layout_constraintTop_toBottomOf="@+id/tvIssueDesc" />
+
+            <TextView
+                android:textColor="@android:color/holo_green_dark"
+                android:id="@+id/tvIssueUpdatedDate"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@{githubIssue.updatedAt}"
+                app:layout_constraintTop_toBottomOf="@+id/tvIssueUser" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+</layout>
